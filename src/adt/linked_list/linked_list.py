@@ -1,5 +1,7 @@
 from typing import Any, Union
 
+from adt.linked_list.utils import print_all_list
+
 
 class LinkedListNode:
     def __init__(self, value: Any = None, next_node: Union['LinkedListNode', None] = None):
@@ -7,12 +9,4 @@ class LinkedListNode:
         self.next_node = next_node
 
     def __str__(self):
-        formatted_list = ''
-        temp_list = self
-        while temp_list is not None:
-            formatted_list += f'[{temp_list.value.__repr__()}]'
-            temp_list = temp_list.next_node
-            if temp_list is None:
-                break
-            formatted_list += ' -> '
-        return formatted_list
+        return print_all_list(self)
